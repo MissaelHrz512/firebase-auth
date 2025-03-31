@@ -14,7 +14,7 @@ export const Login = () => {
               type="text"
               className="form-control"
               name="username"
-              required
+              
             />
           </div>
           <div className="mb-3">
@@ -23,14 +23,14 @@ export const Login = () => {
               type="password"
               className="form-control"
               name="password"
-              required
+              
             />
           </div>
           <div className="login-buttons-container p-2 d-flex justify-content-around">
             <button type="submit" className="btn btn-primary w-100 m-1">
               Ingresar
             </button>
-            <button type="submit" className="btn btn-primary w-100 m-1">
+            <button className="btn btn-primary w-100 m-1">
               <FaGoogle />
             </button>
           </div>
