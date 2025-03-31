@@ -2,20 +2,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaGoogle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useForm } from "../../Hooks/useForm";
+import { useDispatch } from "react-redux";
+import { checkingAuth, startGoogleSingIn } from "../../Store/Auth/thunks";
+
 
 export const Login = () => {
   const { email, password, onInputChange, formState } = useForm({
     email: "jimbo@gmail.com",
     password: "12343124",
   });
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formState);
+    dispatch(checkingAuth());
   };
 
   const onGoogle = () => {
     console.log("Google");
+    dispatch(startGoogleSingIn())
   };
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
