@@ -15,10 +15,24 @@ export const authSlice = createSlice({
     errorMessage: null,
   },
   reducers: {
-    login: (state, action) => {},
-    logout: (state, payload) => {},
+    login: (state, { payload }) => {
+      state.status = "auth";
+      state.uid = payload?.uid || "";
+      state.email = payload?.email || "";
+      state.displayName = payload?.displayName || "";
+      state.photoURL = payload?.photoURL || "";
+      state.errorMessage = null;
+    },
+    logout: (state, { payload }) => {
+      state.status = "not-auth";
+      state.uid = null;
+      state.email = null;
+      state.displayName = null;
+      state.photoURL = null;
+      state.errorMessage = payload?.errorMessage || null;
+    },
     checkingCredentials: (state) => {
-        state.status = "checking"
+      state.status = "checking";
     },
   },
 });
